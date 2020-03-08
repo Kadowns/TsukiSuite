@@ -168,8 +168,8 @@ namespace Lunari.Tsuki {
         }
 
         public static IEnumerable<Type> GetAllTypesOf(Type target, bool excludeSelf = true) {
-            foreach (var assembly in KnownAssemblies) {
-                foreach (var type in assembly.GetTypes()) {
+            for (int i = 0; i < KnownAssemblies.Count; i++) {
+                foreach (var type in KnownAssemblies[i].GetTypes()) {
                     if (excludeSelf && type == target) {
                         continue;
                     }
